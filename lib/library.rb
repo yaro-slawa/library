@@ -26,7 +26,7 @@ module Library
 
 	def often_takes_book(book)
 	  readers = @orders.collect{ |order| order.reader if order.book == book }				
-	  readers.uniq!.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.max_by{ |k, v| v }.first
+	  readers.uniq!.inject(Hash.new(0)) { |total, e| total[e] += 1; total } #.max_by{ |k, v| v }.first
 	end
 
 	def popular_book
