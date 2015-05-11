@@ -46,9 +46,8 @@ module Library
 	end
 
 	def self.load(filename)
-	  obj = File.read(filename)
-	  YAML::load(obj)
-	  f.close
+	  data = File.read(filename)
+	  YAML::load(data)
 	end
   end
 end
