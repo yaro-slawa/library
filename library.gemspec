@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Library Gem}
   spec.description   = %q{Library Gem for RubyGarage Task}
-  spec.homepage      = "https://github.com/yaro-slawa/library_task"
+  spec.homepage      = "https://github.com/yaro-slawa/library"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.

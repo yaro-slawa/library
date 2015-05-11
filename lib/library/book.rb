@@ -1,23 +1,23 @@
 module Library
-class Book
+  class Book
 
 	attr_accessor :title, :author
 
 	def initialize(title, author)
-		@title = title
-		@author = author
+	  @title = title
+	  @author = author
 	end
 
 	def ==(other)
-		if other.is_a? Book
-			@title == other.title && @author == other.author
-		else
-			false
-		end
+	  if other.is_a? Book
+	   	@title == other.title && @author == other.author
+	  else
+		false
+	  end
 	end
 
 	def to_s
-		"#{@title} #{@author}"
+	  "#{@title} #{@author}"
 	end
-end
+  end
 end

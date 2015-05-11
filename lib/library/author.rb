@@ -1,15 +1,15 @@
 module Library
-class Author
+  class Author
 
 	attr_accessor :name, :biography
 
 	def initialize(name, biography=nil)
-		@name = name
-		@biography = biography
+	  @name = name
+	  @biography = biography
 	end
 
 	def to_s
-		"#{@name} #{@biography}"
+	  "#{@name} #{@biography}"
 	end
-end
+  end
 end
