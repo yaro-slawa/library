@@ -21,7 +21,7 @@ module Library
 	  @orders << order
 	  @books << order.book unless @books.include? order.book
 	  @authors << order.book.author unless @authors.include? order.book.author
-	  @readers << order.reader unless @readers.include? order.readers
+	  @readers << order.reader unless @readers.include? order.reader
 	end
 
 	def often_takes_book(book)
