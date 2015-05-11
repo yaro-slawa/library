@@ -26,7 +26,7 @@ module Library
 
 	def often_takes_book(book)
 	  readers = @orders.collect{ |order| order.reader if order.book == book }				
-	  readers.uniq!.inject(Hash.new(0)) { |total, e| total[e] += 1; total } #.max_by{ |k, v| v }.first
+	  readers.compact!.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.max_by{ |k, v| v }.first
 	end
 
 	def popular_book
@@ -36,7 +36,9 @@ module Library
 
 	def popular_books_readers
 	  books = @orders.collect { |order| order.book }
-	  books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }.reverse![0..2]
+	  books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }.reverse!
+	  readers = @orders.collect { |order| order.reader if books[0..2].include?(order.book) }
+	  readers.uniq!
 	end
 
 	def save(filename)
