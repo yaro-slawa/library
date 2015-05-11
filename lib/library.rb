@@ -31,7 +31,8 @@ module Library
 
 	def popular_book
 	  books = @orders.collect { |order| order.book }
-	  books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.max_by{ |k, v| v }.first
+	  pop_books = books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }
+	  pop_books.collect { |item| item[0] if item[1] == pop.books.last[1]}
 	end
 
 	def popular_books_readers
