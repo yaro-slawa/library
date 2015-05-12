@@ -39,8 +39,8 @@ module Library
 
 	def popular_books_readers
 	  books = @orders.collect { |order| order.book }
-	  books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }.reverse!
-	  readers = @orders.collect { |order| order.reader if books[0..2].include?(order.book) }
+	  pop_books = books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }.reverse!.collect { |item| item[0] }
+	  readers = @orders.collect { |order| order.reader if pop_books[0..2].include?(order.book) }
 	  readers.compact! if readers.include?(nil)
 	  readers.uniq!
 	end
