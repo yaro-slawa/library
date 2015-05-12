@@ -25,21 +25,24 @@ module Library
 	end
 
 	def often_takes_book(book)
-	  readers = @orders.collect{ |order| order.reader if order.book == book }				
-	  readers.compact!.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.max_by{ |k, v| v }.first
+	  readers = @orders.collect{ |order| order.reader if order.book == book }
+	  readers.compact! if readers.include?(nil)
+	  readers.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.max_by{ |k, v| v }.first
 	end
 
 	def popular_book
 	  books = @orders.collect { |order| order.book }
 	  pop_books = books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }
-	  pop_books.collect { |item| item[0] if item[1] == pop_books.last[1]}.compact!
+	  pop_books.compact! if pop_books.include?(nil)
+	  pop_books.collect { |item| item[0] if item[1] == pop_books.last[1] }
 	end
 
 	def popular_books_readers
 	  books = @orders.collect { |order| order.book }
 	  books.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort_by{ |k, v| v }.reverse!
 	  readers = @orders.collect { |order| order.reader if books[0..2].include?(order.book) }
-	  readers.compact!.uniq!
+	  readers.compact! if readers.icnlude?(nil)
+	  readers.uniq!
 	end
 
 	def save(filename)
