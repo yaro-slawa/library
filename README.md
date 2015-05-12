@@ -57,6 +57,8 @@ pop_book = lib.popular_book
 
 pop_books_readers = lib.popular_books_readers
 
+# => [#<Library::Reader:0x93ec14c @name="Matthew Perry", @email="matt@org.com", @city="Los Angeles", @street="1st street", @house="1A">, #<Library::Reader:0x93f1f20 @name="Courteney Cox", @email="courteney@org.com", @city="Los Angeles", @street="2nd street", @house="1A">, #<Library::Reader:0x93f3ec4 @name="David Schwimmer", @email="david@org.com", @city="Los Angeles", @street="3rd street", @house="1A">] 
+
 lib.save(filepath)
 
 ## Development
