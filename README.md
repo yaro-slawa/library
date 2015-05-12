@@ -52,7 +52,8 @@ lib.add_order(Library::Order.new(book_pushkin2, reader2))
 lib.add_order(Library::Order.new(book_pushkin2, reader3))
 
 readers_of_tolstoi1 = lib.often_takes_book(book_tolstoi1)
-# => #<Library::Reader:0x96ab298 @name="Mattew Perry", @email="matt@org.com", @city="Los Angeles", @street="1st street", @house="1A">
+# => #<Library::Reader:0x96ab298 @name="Mattew Perry", @email="matt@org.com", 
+@city="Los Angeles", @street="1st street", @house="1A">
 
 pop_book = lib.popular_book
 # => [#<Library::Book:0x973e5e8 @title="War and Peace", @author=#<Library::Author:0x979c0f8 @name="Lev Tolstoi", @biography="Biography">>] 
